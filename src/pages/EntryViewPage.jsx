@@ -1,13 +1,22 @@
-import { useParams } from "react-router-dom";
+
+import { useNavigate, useParams } from "react-router-dom";
 import EntryParent from "../components/EntryParent";
 
-
 export function EntryViewPage(){
-    let {id} = useParams();
+	// localhost:3000/view/1
+	// id = 1;
+	let {id} = useParams();
 
-    return (
-        <div>
-            <EntryParent id={id} />
-        </div>
-    )
+	let navigate = useNavigate();
+
+	return(
+		<div>
+
+			<EntryParent id={id} />
+
+			<button onClick={() => navigate(-1)}>
+				Go back
+			</button>
+		</div>
+	)
 }
